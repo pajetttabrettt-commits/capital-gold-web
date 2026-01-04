@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - CAPITAL GOLD FAMILY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background: #040d0a; background-image: radial-gradient(circle at top right, #064e3b 0%, #040d0a 40%); color: #ecfdf5; font-family: sans-serif; }
+        .glass-card { background: rgba(6, 78, 59, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 2.5rem; }
+    </style>
+</head>
+<body class="p-4 py-10">
+    <div class="max-w-md mx-auto p-8 glass-card">
+        <h2 class="text-center font-black text-xl mb-8 uppercase tracking-widest text-emerald-500">Pendaftaran VIP</h2>
+        <form id="regisForm" class="space-y-4">
+            <input type="text" id="nama" placeholder="Nama Lengkap" class="w-full p-4 rounded-xl bg-black/40 border border-emerald-500/20 text-xs" required>
+            <input type="text" id="wa" placeholder="Nomor WhatsApp (628xxx)" class="w-full p-4 rounded-xl bg-black/40 border border-emerald-500/20 text-xs" required>
+            <input type="text" id="userTele" placeholder="@Username Telegram" class="w-full p-4 rounded-xl bg-black/40 border border-emerald-500/20 text-xs" required>
+            <a href="payment.html" class="block p-4 text-center border border-emerald-500/20 rounded-xl text-[10px] text-emerald-400 font-bold uppercase tracking-widest">Lihat Metode Pembayaran</a>
+            <button type="submit" id="btnSubmit" class="w-full p-4 bg-emerald-600 rounded-xl font-black text-xs uppercase tracking-widest border-b-4 border-emerald-900">DAFTAR SEKARANG</button>
+        </form>
+    </div>
+    <script>
+        const API_URL = 'https://paneldelgrupoderevendedores.loveme.my.id:2855/api/register';
+        document.getElementById('regisForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btnSubmit');
+            const data = {
+                nama: document.getElementById('nama').value,
+                wa: document.getElementById('wa').value,
+                userTele: document.getElementById('userTele').value
+            };
+            btn.innerText = "MENGIRIM...";
+            try {
+                const res = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if(res.ok) {
+                    alert('Data Terkirim! Lanjutkan konfirmasi ke Telegram.');
+                    window.location.href = `https://t.me/UsernameAdminAnda?text=Halo%20Admin,%20saya%20${data.nama}%20ingin%20konfirmasi%20VIP.`;
+                }
+            } catch (err) { alert('Server Offline (Port 2855)'); }
+            btn.innerText = "DAFTAR SEKARANG";
+        });
+    </script>
+</body>
+</html>
