@@ -2,19 +2,46 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Payment - CAPITAL GOLD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment QRIS - CAPITAL GOLD FAMILY</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style> body { background: #040d0a; color: #ecfdf5; } </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #040d0a; color: #ecfdf5; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .glass { background: rgba(6, 78, 59, 0.15); backdrop-filter: blur(16px); border: 1px solid rgba(16, 185, 129, 0.2); }
+        .qr-frame { background: white; padding: 15px; border-radius: 20px; box-shadow: 0 0 25px rgba(16, 185, 129, 0.4); }
+    </style>
 </head>
-<body class="p-6 flex items-center justify-center min-h-screen font-sans">
-    <div class="max-w-md w-full bg-emerald-900/10 border border-emerald-500/20 p-8 rounded-[2rem] backdrop-blur-md text-center">
-        <h2 class="font-black text-emerald-500 uppercase tracking-widest mb-6">Metode Pembayaran</h2>
-        <div class="bg-black/40 p-4 rounded-2xl border border-emerald-500/10 mb-4 text-left">
-            <p class="text-[10px] text-emerald-500/50 uppercase font-bold">Dana / E-Wallet</p>
-            <p class="text-lg font-black tracking-widest">0812-XXXX-XXXX</p>
+<body class="p-4">
+    <div class="max-w-md w-full glass p-8 rounded-[2.5rem] text-center border border-emerald-500/30">
+        <h1 class="text-xl font-extrabold uppercase mb-1">Pembayaran <span class="text-white">VIP</span></h1>
+        <p class="text-[10px] text-emerald-400 mb-6 uppercase tracking-widest font-bold">Nominal: Rp 50.000</p>
+        
+        <div class="flex justify-center mb-6">
+            <div class="qr-frame">
+                <img src="https://files.catbox.moe/4qi0c8.jpg" alt="QRIS" class="w-64 h-auto rounded-lg">
+            </div>
         </div>
-        <p class="text-[11px] text-emerald-200/50 italic mb-8">Kirim bukti transfer setelah melakukan pendaftaran.</p>
-        <a href="index.html" class="text-[10px] font-black uppercase text-emerald-500 border-b border-emerald-500/20 pb-1">Kembali</a>
+
+        <div class="text-left space-y-3 mb-8">
+            <div class="flex gap-3 text-[11px] text-slate-300">
+                <span class="text-emerald-400 font-bold">1.</span>
+                <p>Scan QRIS di atas dengan Dana, OVO, GoPay, atau M-Banking.</p>
+            </div>
+            <div class="flex gap-3 text-[11px] text-slate-300">
+                <span class="text-emerald-400 font-bold">2.</span>
+                <p>Bayar tepat <b>Rp 50.000</b> dan simpan bukti transfernya.</p>
+            </div>
+            <div class="flex gap-3 text-[11px] text-slate-300">
+                <span class="text-emerald-400 font-bold">3.</span>
+                <p>Kembali ke halaman pendaftaran untuk upload bukti.</p>
+            </div>
+        </div>
+
+        <a href="index.html" class="block w-full bg-emerald-600 p-4 rounded-xl font-black text-xs uppercase tracking-widest shadow-xl border-b-4 border-emerald-800 text-center active:scale-95 transition-all">
+            SAYA SUDAH BAYAR & LANJUT DAFTAR
+        </a>
     </div>
 </body>
 </html>
